@@ -1,0 +1,100 @@
+/* --- ITEM TAREA --- */
+
+.tarea-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 10px;
+    position: relative;
+    transition: transform 0.1s;
+  }
+  
+  .tarea-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0); /* Fondo negro transparente inicial */
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .tarea-item:hover .tarea-background,
+  .tarea-item.completed .tarea-background {
+    background: rgba(0, 0, 0, 0.2); /* Fondo negro transparente al hacer hover o tarea completada */
+  }
+  
+  .tarea-item input {
+    margin-right: 8px;
+  }
+  
+  .nombre-item {
+    flex: 1;
+    text-decoration: none;
+    color: #263757;
+    background-color: #dce2eb;
+    margin-right: 2rem;
+    max-width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .tarea-item:hover .nombre-item {
+    background-color: #c0c7d2;
+  }
+  
+  .nombre-item.completed {
+    text-decoration: line-through;
+    color: #8b5cf6;
+    background-color: #c8c4d6;
+  }
+  
+  .botones-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .botones-item button {
+    margin-left: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1; /* Asegura que los botones estén sobre el fondo oscuro */
+  }
+  
+  .btn-completar {
+    background-color: #5cb1f6;
+    color: white;
+  }
+  
+  .btn-borrar {
+    background-color: #ff6161;
+    color: white;
+  }
+  
+  .btn-completar:hover,
+  .btn-borrar:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 1px #e5b5fc;
+  }
+  
+  .btn-completar:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 1px #cd6bfa;
+    background: #5cb1f6;
+  }
+  
+  .btn-borrar:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 1px #fa6b8f;
+    background: #f84343;
+  }
+  
+  .btn-completar.completed {
+    background-color: #8b5cf6;
+    color: white;
+  }
+  
+
+
+

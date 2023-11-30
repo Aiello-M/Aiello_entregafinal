@@ -1,0 +1,35 @@
+/*  --- FORMULARIO INGRESO --- */
+
+form {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 2rem; /* espacio entre input y titulo superior*/   
+}
+
+.btn-agregar {
+    margin-right: 7px; /* espacio entre botón + y el input */
+    font-size: 1.5em; /* Tamaño del símbolo */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}  
+
+.btn-agregar:hover,
+.btn-agregar:active {
+  border: 1px solid #b85cf6; /* Color del borde al hacer hover o click */
+}
+
+form input {
+    width: calc(100% - 130px); /* ancho input*/
+    margin-right: 2%;
+    padding: 12px;
+    background-color: #dce2eb;
+    color: #263757;
+    border: none;
+    outline: none; /* para eliminar borde negro */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}

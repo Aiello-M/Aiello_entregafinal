@@ -1,0 +1,42 @@
+/* --- LISTA TAREAS --- */
+
+.lista-tareas {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mensaje-vacio {
+    color: #dce2eb; 
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .borrar-todo {
+    margin-top: 10px;
+    align-self: flex-end; 
+  }
+  
+  .borrar-todo button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-right: 1rem;
+  }
+  
+  .borrar-todo button img {
+    width: 45px;
+    height: 45px;
+    border: 1px solid transparent;
+    transition: border 0.3s;
+  }
+  
+  .borrar-todo button:hover img {
+    border: 1px solid #ff6161;
+  }
+  
+  .borrar-todo button:active img {
+    border: 1px solid #f84343;
+  }
