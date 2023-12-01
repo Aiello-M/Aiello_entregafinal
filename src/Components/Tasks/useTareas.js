@@ -31,68 +31,79 @@ const useTareas = () => {
     };
 
 
+    const commonConfig = {
+      position: 'top',
+      width: '300px',
+      background: '#dce2eb',
+      customClass: {
+        title: 'custom-title',
+        text: 'custom-text',
+        icon: 'custom-icon',
+      },
+    };
+    
     useEffect(() => {
-        if (tareaAgregada) {
+      if (tareaAgregada) {
         swal
-            .fire({
-            position: 'top',
+          .fire({
+            ...commonConfig,
             icon: 'success',
             title: 'Tarea agregada!',
             showConfirmButton: false,
             timer: 1300,
-            heightAuto: false,
-            })
-            .then(() => setTareaAgregada(false));
-        }
+          })
+          .then(() => setTareaAgregada(false));
+      }
     }, [tareaAgregada]);
-
-
+    
     useEffect(() => {
-        if (listaTareas.length > 0) {
+      if (listaTareas.length > 0) {
         const allDone = listaTareas.every((tarea) => tarea.done);
-
+    
         if (allDone) {
-            swal.fire({
+          swal.fire({
+            ...commonConfig,
+            icon: 'success',
             title: '¡Buen trabajo!',
             text: 'Has completado todas las tareas!',
-            icon: 'success',
             position: 'top',
             timer: 2000,
             showConfirmButton: false,
-            customClass: {
-                htmlContainer: 'custom-container',
-            },
-            });
+          });
         }
-        }
+      }
     }, [listaTareas]);
-
-
+    
     useEffect(() => {
-        if (confirmarBorrarTodo && listaTareas.length > 0) {
-          swal
-            .fire({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!',
-            })
-            .then((result) => {
-              if (result.isConfirmed) {
-                setTareas([]);
-                swal.fire({
-                  title: 'Deleted!',
-                  text: 'Your tasks have been deleted.',
-                  icon: 'success',
-                });
-              }
-            })
-            .finally(() => setConfirmarBorrarTodo(false));
-        }
-      }, [confirmarBorrarTodo, listaTareas]);
+      if (confirmarBorrarTodo && listaTareas.length > 0) {
+        swal
+          .fire({
+            ...commonConfig,
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            position: 'top',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              setTareas([]);
+              swal.fire({
+                ...commonConfig,
+                icon: 'success',
+                title: 'Deleted!',
+                text: 'Your tasks have been deleted.',
+                position: 'top',
+              });
+            }
+          })
+          .finally(() => setConfirmarBorrarTodo(false));
+      }
+    }, [confirmarBorrarTodo, listaTareas]);
+    
       
 
     return {
